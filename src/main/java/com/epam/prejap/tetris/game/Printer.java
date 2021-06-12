@@ -1,25 +1,30 @@
 package com.epam.prejap.tetris.game;
 
+import com.epam.prejap.tetris.colours.ColorPicker;
+
 import java.io.PrintStream;
 
 public class Printer {
-
     final PrintStream out;
 
     public Printer(PrintStream out) {
         this.out = out;
     }
 
-    void draw(byte[][] grid) {
+    void draw(byte[][] grid, String color) {
         clear();
         border(grid[0].length);
+
         for (byte[] bytes : grid) {
             startRow();
+            out.print(color);
             for (byte aByte : bytes) {
                 print(aByte);
             }
+            out.print(ColorPicker.resetColor());
             endRow();
         }
+
         border(grid[0].length);
     }
 
@@ -28,7 +33,7 @@ public class Printer {
     }
 
     void print(byte dot) {
-        out.format(dot == 0 ? " " :"#");
+        out.format(dot == 0 ? " " : ColorPicker.printHash(dot));
     }
 
     void startRow() {
@@ -42,4 +47,5 @@ public class Printer {
     void border(int width) {
         out.println("+" + "-".repeat(width) + "+");
     }
+
 }
