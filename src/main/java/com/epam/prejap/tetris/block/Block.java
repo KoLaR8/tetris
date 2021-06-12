@@ -1,11 +1,13 @@
 package com.epam.prejap.tetris.block;
 
+import com.epam.prejap.tetris.colours.ColorPicker;
+
 public abstract class Block {
 
     final byte[][] image;
     final int rows;
     final int cols;
-
+    final String color = ColorPicker.chooseRandomColor();
     Block(byte[][] dots) {
         rows = dots.length;
         if (dots.length == 0) {
@@ -22,7 +24,7 @@ public abstract class Block {
                 if (dot < 0) {
                     throw new IllegalArgumentException("Invalid dot value");
                 }
-                image[i][j] = dot;
+                image[i][j] = ColorPicker.id(color);
             }
         }
     }
@@ -37,6 +39,10 @@ public abstract class Block {
 
     public byte dotAt(int i, int j) {
         return image[i][j];
+    }
+
+    public String  color(){
+        return color;
     }
 
 }
