@@ -1,7 +1,8 @@
 package com.epam.prejap.tetris.colours;
 
 /**
- *
+ * Contains definition of colors used in tetris game to print blocks in different colors.
+ * Each value contains ascii code and id.
  */
 enum Colors {
     RESET("\u001B[0m", (byte)1),
@@ -16,15 +17,26 @@ enum Colors {
     private final String asciCode;
     private final byte id;
 
+    /**
+     * Constructor of each color value.
+     * @param asciCode needed to change color of printed message in console.
+     * @param id needed to recognize color of block in playfield.
+     */
     Colors(String asciCode, byte id){
         this.asciCode = asciCode;
         this.id = id;
     }
 
+    /**
+     * @return ascii code of color.
+     */
     String getCode(){
         return asciCode;
     }
 
+    /**
+     * @return color id.
+     */
     byte id(){return id;}
 
 }
