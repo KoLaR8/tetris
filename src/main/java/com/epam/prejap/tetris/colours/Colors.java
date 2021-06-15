@@ -3,6 +3,8 @@ package com.epam.prejap.tetris.colours;
 /**
  * Contains definition of colors used in tetris game to print blocks in different colors.
  * Each value contains ascii code and id.
+ * @author Wojciech Kolarczyk
+ * @see ColorPicker
  */
 enum Colors {
     RESET("\u001B[0m", (byte)1),

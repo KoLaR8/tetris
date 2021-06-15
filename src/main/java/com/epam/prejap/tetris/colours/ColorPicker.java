@@ -4,6 +4,8 @@ import java.util.Random;
 
 /**
  *  Purpose of this class is to menage different colors  behaviour provided from enum Colors.
+ * @author Wojciech Kolarczyk
+ * @see Colors
  */
 public class ColorPicker {
 
