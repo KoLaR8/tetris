@@ -14,6 +14,7 @@ public class Playfield {
     private Block block;
     private int row;
     private int col;
+    private String color;
 
     public Playfield(int rows, int cols, BlockFeed feed, Printer printer) {
         this.rows = rows;
@@ -27,6 +28,7 @@ public class Playfield {
         block = feed.nextBlock();
         row = 0;
         col = (cols - block.cols()) / 2;
+        color = block.color();
         show();
     }
 
@@ -86,7 +88,7 @@ public class Playfield {
 
     private void show() {
         forEachBrick((i, j, dot) -> grid[row + i][col + j] = dot);
-        printer.draw(grid);
+        printer.draw(grid, color);
     }
 
     private void doMove(int rowOffset, int colOffset) {
