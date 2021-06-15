@@ -1,5 +1,6 @@
 package com.epam.prejap.tetris.block;
 
+import com.epam.prejap.tetris.colours.ColorPicker;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -8,7 +9,7 @@ import static org.testng.Assert.assertEquals;
 @Test(groups = "blockShapes")
 public class TBlockTest {
 
-    TBlock tBlock = new TBlock();
+    static TBlock tBlock = new TBlock();
 
     public void rows_ShouldReturn2() {
         int expected = 2;
@@ -33,11 +34,11 @@ public class TBlockTest {
     @DataProvider
     public static Object[][] dotsPositions() {
         return new Object[][]{
-                {0, 0, 1, "Incorrect dotAt(0, 0)"},
-                {0, 1, 1, "Incorrect dotAt(0, 1)"},
-                {0, 2, 1, "Incorrect dotAt(0, 2)"},
+                {0, 0, ColorPicker.id(tBlock.color), "Incorrect dotAt(0, 0)"},
+                {0, 1, ColorPicker.id(tBlock.color), "Incorrect dotAt(0, 1)"},
+                {0, 2, ColorPicker.id(tBlock.color), "Incorrect dotAt(0, 2)"},
                 {1, 0, 0, "Incorrect dotAt(1, 0)"},
-                {1, 1, 1, "Incorrect dotAt(1, 1)"},
+                {1, 1, ColorPicker.id(tBlock.color), "Incorrect dotAt(1, 1)"},
                 {1, 2, 0, "Incorrect dotAt(1, 2)"},
         };
     }
