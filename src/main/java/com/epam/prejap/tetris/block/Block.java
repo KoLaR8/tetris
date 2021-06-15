@@ -24,7 +24,8 @@ public abstract class Block {
                 if (dot < 0) {
                     throw new IllegalArgumentException("Invalid dot value");
                 }
-                image[i][j] = ColorPicker.id(color);
+                if(dot > 0)
+                    image[i][j] = ColorPicker.id(color);
             }
         }
     }
