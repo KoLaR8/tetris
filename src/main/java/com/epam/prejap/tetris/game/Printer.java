@@ -11,17 +11,15 @@ public class Printer {
         this.out = out;
     }
 
-    void draw(byte[][] grid, String color) {
+    void draw(byte[][] grid) {
         clear();
         border(grid[0].length);
 
         for (byte[] bytes : grid) {
             startRow();
-            out.print(color);
             for (byte aByte : bytes) {
                 print(aByte);
             }
-            out.print(ColorPicker.resetColor());
             endRow();
         }
 
