@@ -4,10 +4,11 @@ import com.epam.prejap.tetris.colours.ColorPicker;
 
 public abstract class Block {
 
-    final byte[][] image;
-    final int rows;
-    final int cols;
-    final String color = ColorPicker.chooseRandomColor();
+    private final byte[][] image;
+    private final int rows;
+    private final int cols;
+
+
     Block(byte[][] dots) {
         rows = dots.length;
         if (dots.length == 0) {
